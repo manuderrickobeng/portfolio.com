@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ose-Bonsu Cephas's Electrical Engineering Projects Portfolio">
+    <meta name="keywords" content="Electrical Engineering, Robotics, Sustainability, Projects, Arduino, Python">
+    <title>Derrick Portfolio</title>
+    <style>/* General Styles */
+        body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333; /* Default text color */
+    background-color: #f5f5f5; /* Light background to improve readability */
+}
+
+header {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    color: white;
+}
+
+.image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7); /* Darkens the image for better text contrast */
+}
+
+.header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.header .intro {
+    position: relative;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.header .profile-img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 15px;
+    border: 3px solid white;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.header h2 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.header p {
+    max-width: 600px;
+    margin: 20px auto;
+    line-height: 1.5;
+    font-size: 1em;
+    color: #ddd; /* Lighter text for better readability */
+}
+
+.header .btn {
+    background-color: #f39c12;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.header .btn:hover {
+    background-color: #e67e22;
+}
+
+/* Section Styles */
+section {
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #333; /* Ensure text is dark and readable */
+    background-color: #ffffff; /* White background for sections */
+    border-radius: 10px; /* Smooth edges for better aesthetics */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            color: #333;
+        }
+        
+        p, ul {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        ul li {
+            padding: 5px 0;
+            color: #555; /* Darker color for better readability */
+        }
+        
+        #projects .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+        }
+        
+        .project {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            flex-basis: calc(33% - 40px);
+            margin-bottom: 20px;
+        }
+        
+        .project img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .project h3 {
+            background: #f39c12;
+            color: white;
+            margin: 0;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .project p {
+            padding: 15px;
+            color: #666; /* Slightly lighter color for project descriptions */
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .project {
+                flex-basis: calc(50% - 40px);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .project {
+                flex-basis: 100%;
+            }
+        }
+        /* Adjust header styling to make image fill the full height */
+header.header {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    width: 100%;
+    overflow: hidden;
+}
+
+.image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Ensure the image takes up the full height */
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the entire area while maintaining the image's aspect ratio */
+    filter: brightness(0.7); /* Darkens the image for better text contrast */
+}
+
+.header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Optional darker overlay for better text readability */
+    z-index: 1;
+}
+
+.header .intro {
+    position: relative;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+}
+
+.header .intro h1 {
+    font-size: 3.5em;
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.header .intro h2 {
+    font-size: 1.8em;
+    margin: 10px 0;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.header .intro p {
+    max-width: 600px;
+    margin: 20px auto;
+    line-height: 1.7;
+    font-size: 1.1em;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.header .btn {
+    background-color: #f39c12;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.header .btn:hover {
+    background-color: #e67e22;
+}
+/* Video Demonstration Section */
+
+
+/* Responsive Design for Video Demonstration */
+@media (max-width: 768px) {
+    #video-demonstration .project {
+        flex-basis: 100%; /* Full width on smaller screens */
+    }
+}
+/* Research Section Styles */
+#research {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+#research h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.research-content {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.research-content h3 {
+    font-size: 1.5em;
+    margin-top: 20px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}#video-demonstration {
+    padding: 50px;
+    background-color: #f5f5f5;
+}
+
+#video-demonstration h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+#video-demonstration .projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+#video-demonstration .project {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    flex-basis: 48%; /* Two videos per row */
+    margin-bottom: 20px;
+}
+
+#video-demonstration .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    margin: 0 auto; /* Center the videos */
+}
+
+#video-demonstration .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
+
+
+.about-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.about-section .intro-text {
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    color: #555;
+}
+
+.content-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.content-block {
+    flex-basis: 100%;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.content-block h3 {
+    font-size: 1.8em;
+    color: #f39c12;
+    margin-bottom: 20px;
+}
+
+.content-block ul {
+    list-style: none;
+    padding: 0;
+}
+
+.content-block ul li {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #666;
+}
+
+.contact-info {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.contact-info a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+/* Contact Section */
+.contact-section {
+    background: linear-gradient(135deg, #f9f9f9, #d3e0ff);
+    padding: 80px 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.contact-content {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact-content h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-content .intro-text {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    color: #555;
+    line-height: 1.6em;
+}
+
+/* Form Styles */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #555;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.submit-button {
+    background: #007bff;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit-button:hover {
+    background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-content h2 {
+        font-size: 2em;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+
+    .submit-button {
+        width: 100%;
+        padding: 15px;
+    }
+}
+footer {
+  background-color: #282c34;
+  color: #ffffff;
+  padding: 30px 0;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.social-media {
+  margin-bottom: 20px;
+}
+
+.social-link {
+  margin: 0 15px;
+  display: inline-block;
+}
+
+.social-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+footer p {
+  font-size: 14px;
+  margin: 0;
+}
+#achievements {
+  background-color: #f4f4f4;
+  padding: 40px 0;
+  font-family: Arial, sans-serif;
+}
+
+.achievements-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.achievements-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.achievements-list li {
+  font-size: 18px;
+  color: #555;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+.achievements-list li::before {
+  content: "✔️";
+  color: #4CAF50;
+  margin-right: 10px;
+}
+/* General Section Styling */
+#certifications {
+  padding: 40px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+#certifications h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.certification-category {
+  margin: 30px 0;
+}
+
+.certification-category h3 {
+  font-size: 1.5em;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.certificate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.certificate img {
+  width: 200px;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
+.certificate-info {
+  max-width: 500px;
+  text-align: left;
+}
+
+.certificate-info h4 {
+  font-size: 1.25em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  color: #333;
+}
+
+.certificate-info h4 i {
+  color: #FFD700;
+  margin-right: 10px;
+}
+
+.certificate-info p {
+  color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .certificate {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .certificate img {
+    margin-bottom: 15px;
+  }
+
+  .certificate-info {
+    max-width: 100%;
+  }
+}
+
+
+         </style>
+<header class="header">
+    <div class="image-container">
+        <img src="https://cdn.pixabay.com/photo/2024/08/20/13/21/artificial-intelligence-8983285_1280.jpg" alt="AI Banner Image">
+    </div>
+    <div class="overlay"></div>
+    <div class="intro">
+        <img src="https://i.imgur.com/l3mjnBQ.jpeg" alt="Derrick Profile" class="profile-img">
+        <h1>MANU OBENG DERRICK</h1>
+        <h2>Computer Science</h2>
+        <p>I aspire to hybridize computer/ information science and environmental sustainability to improve waste management techniques in the society. Municipalities often struggle with managing varying waste volumes, leading to overflows or underutilized collection efforts. I want to relish the opportunities presented by machine learning to generate models that can predict waste generation patterns based on historical data, seasonal trends, population density, and other factors. These predictions can help authorities plan and allocate resources more effectively, such as adjusting collection schedules, increasing capacity in high-demand areas, or deploying additional resources during peak times. <p>
+        </p>
+        <a href="#projects" class="btn">View My Projects</a>
+    </div>
+</header>
+
+<section id="about" class="about-section">
+    <div class="container">
+        <h2>About Me</h2>
+        <p class="intro-text">
+            As a recent graduate of Konongo Odumase Senior High School (Class of 2023), I'm an ambitious and environmentally conscious individual driven to harness the power of technology to address pressing ecological challenges. With a passion for innovation and sustainability, my vision is to hybridize cutting-edge technology with eco-friendly solutions, creating a better future for our planet.
+With a strong foundation in science, technology, engineering, and mathematics (STEM), I'm eager to explore interdisciplinary approaches to tackle environmental issues such as climate change, pollution, and conservation. Outside the classroom, I enjoy exploring emerging tech trends, coding, and participating in environmental initiatives.
+I'm excited to collaborate with like-minded individuals, learn from experts, and contribute to projects that prioritize environmental stewardship and technological advancement.  </p>
+        
+        <div class="content-flex">
+            <div class="content-block">
+                <h3>Interests</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i>Waste management</li>
+                    <li><i class="fas fa-check"></i>Population density</li>
+                    <li><i class="fas fa-check"></i>Robotics</li>
+                    <li><i class="fas fa-check"></i>Machine Learning</li>
+                     <li><i class="fas fa-check"></i>Photography</li>
+                    <li><i class="fas fa-check"></i>Reading Scientific Articles</i></li>
+                    <li><i class="fas fa-check"></i>Suatainable development</li>
+                
+                </ul>
+            </div>
+            <div class="content-block">
+                <h3>Skills</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i>CSS</li>
+                    <li><i class="fas fa-check"></i>Coordination</li>
+                    <li><i class="fas fa-check"></i>Raspberry Pi</li>
+                    <li><i class="fas fa-check"></i>Football</li>
+                    <li><i class="fas fa-check"></i>Arduino</li>
+                    <li><i class="fas fa-check"></i>Python</li>
+                    <li><i class="fas fa-check"></i>C++</li>
+                   
+                </ul>
+            </div>
+        </div>
+
+        <h3>Contact</h3>
+        <p class="contact-info">
+            Email: <a href="email"></a>
+        </p>
+    </div>
+    <section id="certifications">
+        <h2>Certifications and Achievements</h2>
+      
+        <div class="certification-category">
+          <h3>Academic Achievements</h3>
+          <div class="certificate">
+            <img src="https://i.imgur.com/V858dj0.jpeg" alt="Best Physics Student Certificate">
+            <div class="certificate-info">
+              <h4><i class="fas fa-trophy"></i> Most Committed Student</h4>
+              <p>Awarded for outstanding commitment through my academic journey.</p>
+            </div>
+          </div>
+        </div>
+      
+        <div class="certification-category">
+          <h3>Participation and Honors</h3>
+          <div class="certificate">
+            <img src="https://i.imgur.com/aUdv86Q.jpeg" alt="Participation Certificate">
+            <div class="certificate-info">
+              <h4><i class="fas fa-medal"></i> NASA SPACE APP AWARD</h4>
+              <p>Recognition for participation in providing solutions to problems we face on earth and in space.</p>
+            </div>
+          </div>
+          <div class="certificate">
+            <img src="https://i.imgur.com/D1JZSPc.jpeg" alt="Participation Certificate">
+            <div class="certificate-info">
+              <h4><i class="fas fa-medal"></i> MASTERING SDGS</h4>
+              <p>Recognition for successfully completing a two-hour course on SDGs.</p>
+            </div>
+          </div>
+          <div class="certificate">
+            <img src="https://i.imgur.com/xDSfCsk.jpeg" alt="Participation Certificate">
+            <div class="certificate-info">
+              <h4><i class="fas fa-medal"></i> LIQUID TREES</h4>
+              <p>Recognition for participation in building a cooler tomorrow by harnessing micro-algae to remove excess carbon dioxide.</p>
+            </div>
+          </div>
+          <div class="certificate">
+            <img src="https://i.imgur.com/uSvRHDL.jpeg" alt="Participation Certificate">
+            <div class="certificate-info">
+              <h4><i class="fas fa-medal"></i> OSHAssociation UK</h4>
+              <p>Recognition for participation in World Safety Day.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+  
+  
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="projects-container">
+            <div class="project">
+                <img src="https://i.imgur.com/Hyhr2Wn.jpeg" alt="Smart shoe">
+                <h3>SMART SHOE</h3>
+                <p>Smart Shoe for the Blind: Developed a wearable device using ultrasonic sensors, Arduino board and a buzzer, The sensor is programmed with a reasonable range between obstacle, it sends signal to the buzzer whenever there is obstacle ahead, so the buzzer will beep very hard to alert the wear that there is a danger. This makes the wearer channel is way from approaching danger. This is to help visually impaired individuals navigate obstacles and enhanced mobility and safety. </p>
+            </div>
+            
+            <div class="project">
+                <img src="https://i.imgur.com/YqHYEjp.jpeg" alt="Smart Dustbin">
+                <h3>Smart Dustbin</h3>
+                <p>Smart Dustbin: Created an automated waste management system that uses ultrasonic sensor, servo motor, Arduino board, jumper wires and the dustbin itself. This smart dustbin detects trash and send signal to the servo motor to make it open for successive jumping of the trash. Also it alerts sanitation workers when bins need to be emptied, optimizing collection efficiency.  </p>
+            </div>
+            
+            <div class="project">
+                <img src="https://i.imgur.com/T0s5omf.jpg" alt="H20HopeHorizon">
+                <h3>H20HopeHorizon</h3>
+                <p>•	H2O Hope Horizon, Co-founder: Spearheaded the organization of a large-scale water pollution symposium with 20 schools, coordinating logistics, expert speakers, and educational materials. Mobilized students and local leaders, driving efforts that led to a 30% reduction in waterborne diseases across multiple communities and significantly improved water quality. Overcame significant challenges in resource allocation and cross-school collaboration.</p>
+            </div>
+        </div>
+    </section>
+    <section id="video-demonstration">
+        <h2>Video Demonstration</h2>
+        <div class="projects-container">
+            <div class="project">
+                <h3>SMART SHOE</h3>
+                <div class="video-container">
+                    <div style="padding:56.25% 0 0 0;position:relative;">
+                        <iframe src="https://player.vimeo.com/video/994299968?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                        frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                        style="position:absolute;top:0;left:0;width:100%;height:100%;" title="SHOE"></iframe>
+                    </div>
+                    <script src="https://player.vimeo.com/api/player.js"></script>
+                </div>
+            </div>
+    
+            
+    
+    
+            <div class="project">
+                <h3>Smart Dustbin</h3>
+                <div class="video-container">
+                    <div style="padding:56.25% 0 0 0;position:relative;">
+                        <iframe src="https://player.vimeo.com/video/1023585479?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                        frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                        style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Smart Dustbin"></iframe>
+                    </div>
+                    <script src="https://player.vimeo.com/api/player.js"></script>
+                </div>
+            </div>
+    
+            
+            <div class="project">
+                <h3>H20HopeHorizon</h3>
+                <div class="video-container">
+                    <div style="padding:56.25% 0 0 0;position:relative;">
+                        <iframe src="https://player.vimeo.com/video/1024181835?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" 
+                        frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                        style="position:absolute;top:0;left:0;width:100%;height:100%;" title="H20HopeHorizon"></iframe>
+                    </div>
+                    <script src="https://player.vimeo.com/api/player.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Leave a Message</h2>
+                <p class="intro-text">
+                    I'd love to hear from you! Whether you have a question, a suggestion, or just want to say hello, feel free to drop me a message.
+                </p>
+                <form action="mailto:cephasbonsuosei001@gmail.com" method="POST" enctype="text/plain" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+          <div class="social-media">
+            <a href="http://Wa.me/+233551560593" target="_blank" class="social-link">
+              <img src="https://th.bing.com/th?q=Whats+App+Icon.png&w=120&h=120&c=1&rs=1&qlt=90&cb=1&dpr=1.5&pid=InlineBlock&mkt=en-WW&cc=GH&setlang=en&adlt=moderate&t=1&mw=247" alt="WhatsApp" class="social-icon">
+            </a>
+            <a href="https://www.linkedin.com/in/cephas-bonsu-911731326?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" class="social-link">
+              <img src="https://th.bing.com/th/id/OIP.8OUQAzOlhtNkOtZIHKd_lwHaHa?w=148&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="LinkedIn" class="social-icon">
+            </a>
+            <a href="https://www.tiktok.com/@faithfulness_0551?_t=8pWjhKf4kju&_r=1" target="_blank" class="social-link">
+              <img src="https://th.bing.com/th/id/OIP.10UYWgiyV3HSOvt-AZLl0QHaHa?rs=1&pid=ImgDetMain" alt="TikTok" class="social-icon">
+            </a>
+          </div>
+          <p>&copy; All Rights Reserved.</p>
+        </div>
+      </footer>
+      
+    <script src="js/script.js"></script>
+</body>
+</html>
